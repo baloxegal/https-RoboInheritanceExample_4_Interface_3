@@ -6,7 +6,7 @@ public class ChargingStation implements Has2DCoordinatesInterface, HasBatteryInt
 	private int y;
 	private byte charge;
 	
-	public ChargingStation() {
+	protected ChargingStation() {
 		x = 0;
 		y = 0;
 		charge = 0;
@@ -37,20 +37,15 @@ public class ChargingStation implements Has2DCoordinatesInterface, HasBatteryInt
 		return y;
 	}
 	public boolean charge (HasBatteryInterface chargeable) {
-		if(getCharge() > 5 && getX() == ((AbstractRobot) chargeable).getX() && getY() == ((AbstractRobot) chargeable).getY()) {
+		if(getCharge() > 5 && chargeable.getCharge() < 100 && getX() == ((Has2DCoordinatesInterface) chargeable).getX() && getY() == ((Has2DCoordinatesInterface) chargeable).getY()) {
 			int i = 0;
 			while(chargeable.getCharge() < 100) {
-				chargeable.setCharge(getCharge() + 1);
+				chargeable.setCharge(chargeable.getCharge() + 1);
 				i++;
-				if(chargeable == (AbstractRobot) chargeable) {
-					if(i % 10 == 0) {
-						setCharge(getCharge() - 1);
-					}
-				}
-				else if (chargeable == (ChargingStation) chargeable) {
+				if(i % 10 == 0 || chargeable != (Moveable2DInterface) chargeable) {
 					setCharge(getCharge() - 1);
 				}
-				if(getCharge() == 5) {
+				else if(getCharge() == 5) {
 					return false;
 				}
 			}

@@ -2,7 +2,7 @@ package robo;
 
 public class CharlieRobot extends BetaRobot implements MoveableDiagonalInterface {
 	
-	public CharlieRobot(String name, String model) {
+	protected CharlieRobot(String name, String model) {
 		super(name, model);
 	}
 	

@@ -7,14 +7,14 @@ public class AlphaRobot extends AbstractRobot {
 	private int x;
 	private int y;
 	
-	public AlphaRobot() {
+	protected AlphaRobot() {
 		name = null;
 		model = null;
 		x = 0;
 		y = 0;
 	}
 	
-	public AlphaRobot(String name, String model) {
+	protected AlphaRobot(String name, String model) {
 		setName(name);
 		setModel(model);;
 		x = 0;

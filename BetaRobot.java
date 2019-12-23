@@ -5,7 +5,7 @@ public class BetaRobot extends AlphaRobot implements HasBatteryInterface {
 	private byte charge;
 	private int steps;
 		
-	public BetaRobot(String name, String model) {
+	protected BetaRobot(String name, String model) {
 		super(name, model);
 		charge = 0;
 		steps = 0;
